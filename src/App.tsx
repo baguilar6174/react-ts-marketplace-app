@@ -1,7 +1,12 @@
+import { Button, Container } from '@mui/material';
 import './App.css';
 
 function App(): JSX.Element {
-	return <h1>Marketplace</h1>;
+	return (
+		<Container maxWidth='xl'>
+			<Button variant='contained'>Hello</Button>
+		</Container>
+	);
 }
 
 export default App;
