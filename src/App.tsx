@@ -1,11 +1,12 @@
-import { Button, Container } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import { AppRouter } from './routes/Router';
 
 function App(): JSX.Element {
 	return (
-		<Container maxWidth='xl'>
-			<Button variant='contained'>Hello</Button>
-		</Container>
+		<BrowserRouter>
+			<AppRouter />
+		</BrowserRouter>
 	);
 }
 
