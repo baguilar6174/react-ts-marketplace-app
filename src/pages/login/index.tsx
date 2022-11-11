@@ -9,8 +9,11 @@ import {
 	TextField,
 } from '@mui/material';
 import { useForm } from '@/hooks';
+import { useNotification } from '@/context/notification.context';
+import { LoginValidate } from '@/utils';
 
 export const LoginPage: React.FC<{}> = (): JSX.Element => {
+	const { getError, getSuccess } = useNotification();
 	const { formState, onInputChange } = useForm({
 		username: '',
 		password: '',
@@ -18,7 +21,13 @@ export const LoginPage: React.FC<{}> = (): JSX.Element => {
 
 	const onSubmit = (event: React.FormEvent<HTMLInputElement>): void => {
 		event.preventDefault();
-		console.log(formState);
+		LoginValidate.validate(formState)
+			.then((): void => {
+				getSuccess(JSON.stringify(formState));
+			})
+			.catch((error): void => {
+				getError(error.message);
+			});
 	};
 
 	return (
@@ -42,7 +51,6 @@ export const LoginPage: React.FC<{}> = (): JSX.Element => {
 								fullWidth
 								label='Username'
 								sx={{ mt: 2, mb: 1.5 }}
-								required
 								onChange={onInputChange}
 								name='username'
 								id='username'
@@ -53,7 +61,6 @@ export const LoginPage: React.FC<{}> = (): JSX.Element => {
 								fullWidth
 								label='Password'
 								sx={{ mt: 1.5, mb: 1.5 }}
-								required
 								onChange={onInputChange}
 								name='password'
 								id='password'
