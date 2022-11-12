@@ -25,16 +25,20 @@ export const CustomCard: React.FC<CardProps> = ({
 	status,
 	id,
 }): JSX.Element => {
+	const [disabledBtn, setDisabledBtn] = React.useState<boolean>(false);
+
 	const navigate = useNavigate();
 
 	return (
 		<Card>
 			<CardMedia component='img' height='194' image={image} alt={name} />
 			<CardContent>
-				<Typography variant='h4'>{name}</Typography>
+				<Typography variant='h4' sx={{ mb: 1.5 }}>
+					{name}
+				</Typography>
 				<Divider sx={{ my: 1.5 }} />
-				<Typography>Specie: {species}</Typography>
-				<Typography>Status: {status}</Typography>
+				<Typography sx={{ mt: 1.5 }}>Specie: {species}</Typography>
+				<Typography sx={{ mt: 1.5 }}>Status: {status}</Typography>
 			</CardContent>
 			<CardActions>
 				<Button
@@ -45,11 +49,22 @@ export const CustomCard: React.FC<CardProps> = ({
 				>
 					View more
 				</Button>
+				<Button
+					fullWidth
+					variant='outlined'
+					size='small'
+					disabled={disabledBtn}
+					onClick={handleAddToCart}
+				>
+					Add to cart
+				</Button>
 			</CardActions>
 		</Card>
 	);
 
-	function goToDetails() {
+	function goToDetails(): void {
 		navigate(`/character/${id}`);
 	}
+
+	function handleAddToCart(): void {}
 };

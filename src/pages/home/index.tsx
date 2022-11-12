@@ -44,7 +44,7 @@ export const HomePage: React.FC<{}> = (): JSX.Element => {
 	}, [page]);
 
 	return (
-		<Container maxWidth='lg'>
+		<Container maxWidth='xl'>
 			<Header
 				title='Home'
 				description='Welcome'
