@@ -69,6 +69,7 @@ export const HomePage: React.FC<{}> = (): JSX.Element => {
 												name={character.name}
 												species={character.species}
 												status={character.status}
+												id={character.id}
 											/>
 										</Grid>
 									)

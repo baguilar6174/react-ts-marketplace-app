@@ -10,7 +10,7 @@ export const characters = {
 			},
 		});
 	},
-	findOne: function ({ id }: { id: number }) {
+	findOne: function ({ id }: { id: string | undefined }) {
 		return instance.get(`${endpoint}/${id}`);
 	},
 };

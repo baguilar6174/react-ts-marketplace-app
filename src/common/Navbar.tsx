@@ -26,7 +26,7 @@ export const Navbar: React.FC<{}> = (): JSX.Element => {
 							alignItems='center'
 						>
 							<Grid item>
-								<Typography>Bryan Aguilar</Typography>
+								<Typography>Rick y Morty Marketplace</Typography>
 							</Grid>
 							<Grid item>
 								<Stack direction='row' spacing={2}>
