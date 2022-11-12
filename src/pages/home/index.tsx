@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	Button,
 	Container,
 	Grid,
 	Box,
@@ -45,11 +44,7 @@ export const HomePage: React.FC<{}> = (): JSX.Element => {
 
 	return (
 		<Container maxWidth='xl'>
-			<Header
-				title='Home'
-				description='Welcome'
-				element={<Button fullWidth>Press</Button>}
-			/>
+			<Header title='Market' description='Welcome to Rick & Morty Market' />
 			{isLoading ? (
 				<Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
 					<CircularProgress />

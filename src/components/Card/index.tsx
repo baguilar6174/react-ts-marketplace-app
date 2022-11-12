@@ -1,3 +1,5 @@
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { addToCart, CartAddState } from '@/redux/slices/cart.slice';
 import {
 	Button,
 	Card,
@@ -25,9 +27,18 @@ export const CustomCard: React.FC<CardProps> = ({
 	status,
 	id,
 }): JSX.Element => {
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+
 	const [disabledBtn, setDisabledBtn] = React.useState<boolean>(false);
 
-	const navigate = useNavigate();
+	const cartItems = useAppSelector(
+		(state): CartAddState[] => state.cartReducer
+	);
+
+	React.useEffect((): void => {
+		setDisabledBtn(cartItems.some((item): boolean => item.id === id));
+	}, [cartItems, id]);
 
 	return (
 		<Card>
@@ -66,5 +77,14 @@ export const CustomCard: React.FC<CardProps> = ({
 		navigate(`/character/${id}`);
 	}
 
-	function handleAddToCart(): void {}
+	function handleAddToCart(): void {
+		dispatch(
+			addToCart({
+				id,
+				name,
+				image,
+				info: status,
+			})
+		);
+	}
 };
