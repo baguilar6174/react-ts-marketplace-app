@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { getItem } from '@/utils';
 
 export interface CartAddState {
 	id: string | number;
@@ -12,7 +13,7 @@ export interface CartRemoveState {
 	id: string | number;
 }
 
-const initialState: CartAddState[] = [];
+const initialState: CartAddState[] = getItem('cart') || [];
 
 export const cartSlice = createSlice({
 	name: 'cart',

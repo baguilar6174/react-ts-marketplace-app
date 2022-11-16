@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addToCart, CartAddState } from '@/redux/slices/cart.slice';
+import { setItem } from '@/utils';
 import {
 	Button,
 	Card,
@@ -38,6 +39,7 @@ export const CustomCard: React.FC<CardProps> = ({
 
 	React.useEffect((): void => {
 		setDisabledBtn(cartItems.some((item): boolean => item.id === id));
+		setItem('cart', cartItems);
 	}, [cartItems, id]);
 
 	return (
