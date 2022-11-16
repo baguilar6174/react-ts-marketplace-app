@@ -1,6 +1,6 @@
 # Rick y Morty Marketplace
 
-Este proyecto contiene una aplicación sencilla creada con React y Typescript, presenta un simple marketplace usando la API de Rick y Morty, en la aplicación se integran conceptos de React usando Typescript, integración y personalización de Material UI, formularios, redux, etc.
+This project contains a simple application created with React and Typescript, it presents a simple marketplace using the Rick and Morty API, the application integrates React concepts using Typescript, Material UI integration and customization, forms, redux, etc.
 
 ## Installation
 
