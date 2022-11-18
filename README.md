@@ -38,6 +38,7 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 - Material UI
 - React Router DOM
 - Yup
+- Formik
 
 ## What I learned
 
@@ -48,6 +49,7 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 - Create pagination
 - Form validation using YUP
 - Create a simple shopping cart using redux
+- Form validation with Formik
 
 ## Rick y Morty Marketplace
 

@@ -8,27 +8,29 @@ import {
 	Typography,
 	TextField,
 } from '@mui/material';
-import { useForm } from '@/hooks';
+import { useFormik } from 'formik';
+
 import { useNotification } from '@/context/notification.context';
 import { LoginValidate } from '@/utils';
 
-export const LoginPage: React.FC<{}> = (): JSX.Element => {
-	const { getError, getSuccess } = useNotification();
-	const { formState, onInputChange } = useForm({
-		username: '',
-		password: '',
-	});
+type LoginType = {
+	username: '';
+	password: '';
+};
 
-	const onSubmit = (event: React.FormEvent<HTMLInputElement>): void => {
-		event.preventDefault();
-		LoginValidate.validate(formState)
-			.then((): void => {
-				getSuccess(JSON.stringify(formState));
-			})
-			.catch((error): void => {
-				getError(error.message);
-			});
-	};
+export const LoginPage: React.FC<{}> = (): JSX.Element => {
+	const { getSuccess } = useNotification();
+
+	const formik = useFormik<LoginType>({
+		initialValues: {
+			username: '',
+			password: '',
+		},
+		validationSchema: LoginValidate,
+		onSubmit: (values: LoginType): void => {
+			getSuccess(JSON.stringify(values));
+		},
+	});
 
 	return (
 		<Container maxWidth='sm'>
@@ -44,16 +46,21 @@ export const LoginPage: React.FC<{}> = (): JSX.Element => {
 						<Typography variant='h4' sx={{ mt: 1, mb: 1 }}>
 							Sign in here
 						</Typography>
-						<Box component='form' onSubmit={onSubmit}>
+						<Box component='form' onSubmit={formik.handleSubmit}>
 							<TextField
 								type='text'
 								margin='normal'
 								fullWidth
 								label='Username'
 								sx={{ mt: 2, mb: 1.5 }}
-								onChange={onInputChange}
 								name='username'
 								id='username'
+								value={formik.values.username}
+								onChange={formik.handleChange}
+								error={
+									formik.touched.username && Boolean(formik.errors.username)
+								}
+								helperText={formik.touched.username && formik.errors.username}
 							/>
 							<TextField
 								type='password'
@@ -61,9 +68,14 @@ export const LoginPage: React.FC<{}> = (): JSX.Element => {
 								fullWidth
 								label='Password'
 								sx={{ mt: 1.5, mb: 1.5 }}
-								onChange={onInputChange}
 								name='password'
 								id='password'
+								value={formik.values.password}
+								onChange={formik.handleChange}
+								error={
+									formik.touched.password && Boolean(formik.errors.password)
+								}
+								helperText={formik.touched.password && formik.errors.password}
 							/>
 							<Button
 								fullWidth
