@@ -50,6 +50,7 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 - Form validation using YUP
 - Create a simple shopping cart using redux
 - Form validation with Formik
+- React Lazy Load
 
 ## Rick y Morty Marketplace
 

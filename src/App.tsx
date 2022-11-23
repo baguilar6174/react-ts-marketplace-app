@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import './App.css';
@@ -8,7 +9,9 @@ function App(): JSX.Element {
 	return (
 		<NotificationProvider>
 			<BrowserRouter>
-				<AppRouter />
+				<Suspense fallback={'Loading'}>
+					<AppRouter />
+				</Suspense>
 			</BrowserRouter>
 		</NotificationProvider>
 	);

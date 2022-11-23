@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom';
 import { Character } from '../home/interfaces/character.interface';
 import { characters } from '@/data/characters';
 
-export const CharacterPage: React.FC = (): JSX.Element => {
+const CharacterPage: React.FC = (): JSX.Element => {
 	const { id } = useParams();
 	const [character, setCharacter] = React.useState<Character | null>(null);
 	const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -69,3 +69,5 @@ export const CharacterPage: React.FC = (): JSX.Element => {
 		</Box>
 	);
 };
+
+export default CharacterPage;
