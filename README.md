@@ -1,4 +1,4 @@
-# [Rick y Morty Marketplace](https://rickandmorty-marketplace.vercel.app)
+# Rick y Morty Marketplace
 
 This project contains a simple application created with React and Typescript, it presents a simple marketplace using the Rick and Morty API, the application integrates React concepts using Typescript, Material UI integration and customization, forms, redux, etc.
 
@@ -68,9 +68,8 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
   </tr>
  </table>
 
-## Author
+## Stay in touch
 
 - Website - [www.bryan-aguilar.com](https://www.bryan-aguilar.com/)
 - Medium - [baguilar6174](https://baguilar6174.medium.com/)
-- LinkeIn - [baguilar6174](https://www.linkedin.com/in/baguilar6174)
-- Email - [bryan.aguilar6174@gmail.com](mailto:bryan.aguilar6174@gmail.com)
+- LinkedIn - [baguilar6174](https://www.linkedin.com/in/baguilar6174)
